@@ -20,4 +20,4 @@ end
 
 require './server.rb'
                                                      
-run Rack::URLMap.new("/" => Rack::Directory.new('.'), "/api" => Sinatra::Application)
+run Rack::URLMap.new("/public" => Rack::Directory.new('.'), "/api" => Sinatra::Application)
