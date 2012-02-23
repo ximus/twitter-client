@@ -1,6 +1,10 @@
-require 'rake-pipeline'
-require 'rake-pipeline/middleware'
-use Rake::Pipeline::Middleware, 'Assetfile'
+ENV['RAKEP_MODE'] = ENV['RACK_ENV']
+
+if ENV['RAKEP_MODE'] != 'production'
+  require 'rake-pipeline'
+  require 'rake-pipeline/middleware'
+  use Rake::Pipeline::Middleware, 'Assetfile'
+end
 
 # require 'rack/streaming_proxy'
 # use Rack::StreamingProxy do |request|
