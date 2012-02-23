@@ -5,8 +5,6 @@ require 'rake-pipeline-web-filters'
 
 WebFilters = Rake::Pipeline::Web::Filters
 
-ENV['RAKEP_MODE'] = 'production'
-
 class LoaderFilter < WebFilters::MinispadeFilter
   def generate_output(inputs, output)
     inputs.each do |input|
