@@ -1,4 +1,5 @@
 www:
   type: ruby
+  approot: "."
   config:
-    ruby-version: "1.9.2"
+    ruby-version: 1.9.2
