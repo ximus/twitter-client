@@ -1,0 +1,25 @@
+<div class="header window">
+  <img {{bindAttr src="profilePicURL"}} width="48" height="48">
+  <p class="name">
+    {{name}}<span>@{{screenName}}</span>
+  </p>
+  <p class="follower-count">{{numOfFollowers}} followers</p>
+  
+  <button {{action "signout"}} class="btn btn-mini btn-danger logout">Sign out</button>
+  <button {{action "compose"}} class="btn btn btn-primary compose"></button>
+</div>
+
+<ul class="tweets">
+  {{#each tweets}}
+    <li>
+      <p class="user">{{cap name}}<span>@{{screenName}}</span></p>
+      <div class="actions">
+        <a class="retweet" {{action "retweet"}}>Retweet</a>
+        <a class="reply"   {{action "reply"}}>Reply</a>
+        <span class="time-left">{{since createdAt}}</span>
+      </div>
+      <img {{bindAttr src="profilePicURL"}}>
+      <p class="body">{{text}}</p>
+    </li>
+  {{/each}}
+</ul>
