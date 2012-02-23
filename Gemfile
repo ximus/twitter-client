@@ -7,6 +7,7 @@ gem "rack-streaming-proxy"
 gem "sass"
 gem "compass"
 
+gem "execjs"
 gem "uglifier"
 gem "yui-compressor"
 
