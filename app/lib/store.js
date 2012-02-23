@@ -32,9 +32,29 @@ App.Store = Ember.Object.create({
     return Ember.Object.create({
       screenName: obj['user']['screen_name'],
       name: obj['user']['name'],
-      text: obj['text'],
+      body: obj['text'],
       createdAt: new Date(Date.parse(obj['created_at'])),
-      profilePicURL: obj['user']['profile_image_url_https']
+      profilePicURL: obj['user']['profile_image_url_https'],
+      htmlBody: function () {
+        var body = this.get('body');
+        // Parse URIs
+        body = body.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, function(uri) {
+      		return '<a href="%@" target="_blank">%@</a>'.fmt(uri, uri);
+      	});
+
+        // Parse Twitter usernames
+        body = body.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
+      		var username = u.replace("@","")
+      		return '<a href="%@" target="_blank">%@</a>'.fmt("http://twitter.com/"+username, u);
+      	});
+
+      	// Parse Twitter hash tags
+      	body = body.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
+      		var tag = t.replace("#","%23");
+      		return '<a href="%@" target="_blank">%@</a>'.fmt("http://search.twitter.com/search?q="+tag, t);
+      	});
+        return body;
+      }.property('body').cacheable()
     });
   }
   

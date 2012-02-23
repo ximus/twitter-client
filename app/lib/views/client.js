@@ -35,6 +35,10 @@ App.Client = Ember.View.extend({
     this.get('controller').send('compose');
   },
   
+  signout: function() {
+    this.get('controller').send('signout');
+  }
+  
 });
 
 App.Client.DEFAULT_WIDTH = 420;

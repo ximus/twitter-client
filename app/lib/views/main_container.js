@@ -55,6 +55,17 @@ App.MainContainer = Ember.ContainerView.extend({
     Ember.run.next(this, 'positionClients');
   },
   
+  // TODO: is this Garbage Collection friendly?
+  removeClient: function(client) {              
+    client.$().fadeOut('fast', $.proxy(function () {
+      this.get('clients').removeObject(client);
+      this.get('childViews').removeObject(client);
+      // Will someone one day explain me why I have to do this?
+      Ember.run.next(this, 'positionClients');
+      Ember.run.next(this, 'positionPlaceholder');
+    }, this));
+  },
+  
   positionClients: function () {
     var clients = this.get('clients'),
         client, left = 0;
@@ -65,12 +76,10 @@ App.MainContainer = Ember.ContainerView.extend({
       // Position it offscreen
       client.$().css({ left: this.$().width() + App.MainContainer.SPACING });
       Ember.run.next(function (left, client) {
-        console.log(left);
         // Then slide it in
         return function() { client.$().css({ left: left }); };
       }(left, client)); // Pass by value
       left += client.$().width();
-      console.log("WIDDDTH " + client.$().width());
     };
     this._currentOffset = left;
   },

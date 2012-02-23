@@ -1,5 +1,3 @@
-ENV['RAKEP_MODE'] = ENV['RACK_ENV']
-
 if ENV['RAKEP_MODE'] != 'production'
   require 'rake-pipeline'
   require 'rake-pipeline/middleware'
@@ -20,4 +18,4 @@ end
 
 require './server.rb'
                                                      
-run Rack::URLMap.new("/public" => Rack::Directory.new('.'), "/api" => Sinatra::Application)
+run Rack::URLMap.new("/" => Rack::Directory.new('public'), "/api" => Sinatra::Application)

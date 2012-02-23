@@ -1,4 +1,5 @@
 APPNAME = 'twitter-client'
+ENV['RAKEP_MODE'] = 'production'
 
 require 'json'
 require 'rake-pipeline-web-filters'
@@ -37,7 +38,7 @@ class HandlebarsFilter < Filter
   end
 end
             
-output 'assets'
+output 'public'
 
 input  'app' do 
   match 'lib/**/*.js' do

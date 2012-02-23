@@ -65,5 +65,10 @@ App.ClientController = Ember.StateManager.extend({
       stateManager.goToState('idle');
     }
     
-  })
+  }),
+  
+ signout: function(stateManager) {
+   var client = stateManager.get('rootView');
+   App.mainContainer.removeClient(client);
+ }
 });

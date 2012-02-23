@@ -39,7 +39,7 @@ route :get, :post, :put, "/proxy" do
 end
 
 get "/auth/twitter" do
-  @request_token = @consumer.get_request_token(:oauth_callback => "http://localhost:9292/api/auth/callback")
+  @request_token = @consumer.get_request_token(:oauth_callback => "http://#{request.host_with_port}/api/auth/callback")
   session[:handshake][:request_token] = @request_token.token
   session[:handshake][:request_token_secret] = @request_token.secret
   redirect @request_token.authorize_url + "&force_login=true&screen_name=#{params[:screen_name]}"

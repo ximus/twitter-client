@@ -7,6 +7,8 @@ $strong: 		#191919;
 $window-radius: 6px;
 $left-gutter: 10px;
 
+a { color: #5161c9; }
+
 .animated {
 	-webkit-animation: 1s ease;
 	   -moz-animation: 1s ease;
@@ -147,6 +149,7 @@ body {
 	
 	.header img {
 		position: absolute;
+		border: 1px solid #8a8a8a;
 		border-radius: 6px;
 		top: 10px;
 		left: $left-gutter;
@@ -161,13 +164,14 @@ body {
 		span {
 			color: $lightish;
 			margin-left: 10px;
+			font-size: 83%;
 		}
 	}
 	.header .follower-count {
 		position: absolute;
 		left: 76px;
 		top: 32px;         
-		color: $normal; 
+		color: $lightish; 
 		font-style: italic;
 		font-size: 0.9em;
 	}
@@ -254,6 +258,7 @@ body {
 			top: $line-two;
 			left: $left-gutter;
 			border-radius: 6px;
+			border: 1px solid #8a8a8a;
 		}
 		p.body {
 			top: $line-two;
@@ -261,13 +266,15 @@ body {
 			color: $stronger;
 			left: 76px;
 			font-size: 1.1em;
+			bottom: 0px;
+			overflow: hidden;
 		}
 	}
 
-	-moz-transition: all .3s ease-in-out;
-	-webkit-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
+	-moz-transition: left .3s ease-in-out;
+	-webkit-transition: left .3s ease-in-out;
+	-o-transition: left .3s ease-in-out;
+	transition: left .3s ease-in-out;
 }
 
 .compose {

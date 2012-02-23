@@ -19,7 +19,7 @@
         <span class="time-left">{{since createdAt}}</span>
       </div>
       <img {{bindAttr src="profilePicURL"}}>
-      <p class="body">{{text}}</p>
+      <p class="body">{{safe htmlBody}}</p>
     </li>
   {{/each}}
 </ul>

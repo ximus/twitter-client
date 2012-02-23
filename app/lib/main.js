@@ -11,9 +11,6 @@ Ember.run.next(function() {
   App.mainController = App.MainController.create({
     rootView: mainContainer
   });
-})
-
-
-
+});
 
 App.mainContainer = mainContainer;
