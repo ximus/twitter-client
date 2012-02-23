@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/wycats/rake-pipeline-web-filters.git
-  revision: e58b9d055de666f6ca972151c125ccfb997c1b1c
+  revision: 8719a4e4a9aa21cd723b5121bd3ec54d87997018
   specs:
     rake-pipeline-web-filters (0.6.0)
       rack
