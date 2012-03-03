@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">x</a>
+  <h3>Compose as {{cap client.name}}</h3>
+</div>
+<div class="modal-body">
+  {{view Ember.TextArea valueBinding="value" }}
+</div>
+<div class="modal-footer">
+  <span class="chars-left">{{charsLeft}} / {{maxChars}}</span>
+  <button {{action "send"}} class="btn btn-primary disabled">Tweet This</button>
+  <button {{action "hide"}} class="btn">Close</button>
+</div>   

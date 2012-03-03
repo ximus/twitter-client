@@ -36,7 +36,7 @@ route :get, :post, :put, "/proxy" do
     raise ::Timeout::Error
   end
   response           
-end
+end   
 
 get "/auth/twitter" do
   @request_token = @consumer.get_request_token(:oauth_callback => "http://#{request.host_with_port}/api/auth/callback")

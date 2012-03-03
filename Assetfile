@@ -1,5 +1,4 @@
 APPNAME = 'twitter-client'
-ENV['RAKEP_MODE'] = 'production'
 
 require 'json'
 require 'rake-pipeline-web-filters'
